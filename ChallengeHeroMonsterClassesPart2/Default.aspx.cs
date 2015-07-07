@@ -36,6 +36,8 @@ namespace ChallengeHeroMonsterClassesPart2
 
                 DisplayStats(hero);
                 DisplayStats(monster);
+
+                DisplayResult(hero, monster);
             }
         }
 
@@ -43,6 +45,23 @@ namespace ChallengeHeroMonsterClassesPart2
         {
             resultLabel.Text += String.Format("Name: {0}, Health: {1}, Damage Maximum: {2}, Attack Bonus: {3}</br>",
                 character.Name, character.Health, character.DamageMaximum, character.AttackBonus);
+        }
+
+        private void DisplayResult(Character opponent1, Character opponent2)
+        {
+            if(opponent1.Health <= 0 && opponent2.Health <= 0)
+            {
+                resultLabel.Text += String.Format("{0} and {1} both died.", opponent1.Name, opponent2.Name);
+            }
+            else if(opponent1.Health <= 0)
+            {
+                resultLabel.Text += String.Format("{0} defeats {1}", opponent2.Name, opponent1.Name);
+            }
+            else if(opponent2.Health <= 0)
+            {
+                resultLabel.Text += String.Format("{0} defeats {1}", opponent1.Name, opponent2.Name);
+            }
+            
         }
     }
 
