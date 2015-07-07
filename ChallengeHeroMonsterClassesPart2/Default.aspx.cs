@@ -15,7 +15,7 @@ namespace ChallengeHeroMonsterClassesPart2
             Character hero = new Character();
             hero.Name = "Hero";
             hero.Health = 100;
-            hero.DamageMaximum = 40;
+            hero.DamageMaximum = 30;
             hero.AttackBonus = true;
 
             Character monster = new Character();
@@ -29,11 +29,14 @@ namespace ChallengeHeroMonsterClassesPart2
             if (monster.AttackBonus)
                 hero.Defend(monster.Attack(dice));
 
-            monster.Defend(hero.Attack(dice));
-            hero.Defend(monster.Attack(dice));
+            while(hero.Health > 0 && monster.Health > 0)
+            {
+                monster.Defend(hero.Attack(dice));
+                hero.Defend(monster.Attack(dice));
 
-            DisplayStats(hero);
-            DisplayStats(monster);
+                DisplayStats(hero);
+                DisplayStats(monster);
+            }
         }
 
         private void DisplayStats(Character character)
