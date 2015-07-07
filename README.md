@@ -1,6 +1,8 @@
 # ChallengeHeroMonsterClassesPart2
 Add a new Dice class, Implement a Battle Loop, Display Battle Text
 
+REQUIREMENTS
+============
 1.You will start by creating a new class named Dice.  The Dice class will have one property: int Sides, and method called Roll().  The Roll() method will use the Sides property as the maximum value used by the Random.Next() method.  The Roll() method will return the random number to the caller.  Hint: you cannot create a new instance of the Random class inside of the Roll() method otherwise you'll have that same problem we've fought before.  You must create a new instance of the Random class *outside* of the Roll() method.
 
 2.In the Default class' Page_Load method, you will create a new instance of the Dice class and pass it as an input parameter to the Character class' Attack method.  The Attack method will set the Sides property, then will call the Dice class' Roll() method and use the return value as the return value of the Attack method as well.
