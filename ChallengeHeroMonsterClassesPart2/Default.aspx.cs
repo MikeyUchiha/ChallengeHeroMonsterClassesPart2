@@ -24,6 +24,11 @@ namespace ChallengeHeroMonsterClassesPart2
             monster.DamageMaximum = 25;
             monster.AttackBonus = false;
 
+            if (hero.AttackBonus)
+                monster.Defend(hero.Attack(dice));
+            if (monster.AttackBonus)
+                hero.Defend(monster.Attack(dice));
+
             monster.Defend(hero.Attack(dice));
             hero.Defend(monster.Attack(dice));
 
@@ -47,7 +52,7 @@ namespace ChallengeHeroMonsterClassesPart2
 
         public int Attack(Dice dice)
         {
-            dice.Sides = DamageMaximum;
+            dice.Sides = DamageMaximum + 1;
             return dice.Roll();
         }
 
