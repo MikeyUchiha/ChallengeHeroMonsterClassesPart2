@@ -60,7 +60,7 @@ namespace ChallengeHeroMonsterClassesPart2
     class Dice
     {
         public int Sides { get; set; }
-        Random random;
+        Random random = new Random();
 
         public int Roll()
         {
