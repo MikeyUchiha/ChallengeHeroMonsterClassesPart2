@@ -56,4 +56,15 @@ namespace ChallengeHeroMonsterClassesPart2
             Health -= damage;
         }
     }
+
+    class Dice
+    {
+        public int Sides { get; set; }
+        Random random;
+
+        public int Roll()
+        {
+            return random.Next(Sides);
+        }
+    }
 }
