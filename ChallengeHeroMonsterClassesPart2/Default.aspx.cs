@@ -11,6 +11,7 @@ namespace ChallengeHeroMonsterClassesPart2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Dice dice = new Dice();
             Character hero = new Character();
             hero.Name = "Hero";
             hero.Health = 100;
@@ -23,8 +24,8 @@ namespace ChallengeHeroMonsterClassesPart2
             monster.DamageMaximum = 25;
             monster.AttackBonus = false;
 
-            monster.Defend(hero.Attack());
-            hero.Defend(monster.Attack());
+            monster.Defend(hero.Attack(dice));
+            hero.Defend(monster.Attack(dice));
 
             DisplayStats(hero);
             DisplayStats(monster);
@@ -44,11 +45,10 @@ namespace ChallengeHeroMonsterClassesPart2
         public int DamageMaximum { get; set; }
         public bool AttackBonus { get; set; }
 
-        public int Attack()
+        public int Attack(Dice dice)
         {
-            Random random = new Random();
-            int result = random.Next(DamageMaximum);
-            return result;
+            dice.Sides = DamageMaximum;
+            return dice.Roll();
         }
 
         public void Defend(int damage)
